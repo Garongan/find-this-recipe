@@ -52,7 +52,7 @@ export default function SearchRecipe({search}) {
         <SearchIcon />
       </SearchIconWrapper>
       <StyledInputBase
-        placeholder="Search..."
+        placeholder="Search the recipe..."
         inputProps={{ "aria-label": "search" }}
         onChange={(e) => search(e.target.value)}
       />
