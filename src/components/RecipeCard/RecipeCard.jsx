@@ -12,6 +12,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./RecipeCard.css";
 import ReactHtmlParser from 'react-html-parser';
+import { Skeleton } from "@mui/material";
 
 const ExpandMore = styled((props) => {
   // eslint-disable-next-line no-unused-vars
@@ -35,13 +36,20 @@ export default function RecipeCard({ img, title, summary, instructions }) {
 
   return (
     <Card>
-      <CardMedia
-        component="img"
-        height="215"
-        image={img}
-        alt={title}
-        className="animateBigger"
-      />
+      {
+        img ? (
+          <CardMedia
+            component="img"
+            height="215"
+            image={img}
+            alt={title}
+            className="animateBigger"
+          />
+        ) :
+        (
+          <Skeleton animation="wave" variant="rectangular" width={'auto'} height={215} />
+        )
+      }
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}

@@ -2,6 +2,7 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import { useState } from "react";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -45,7 +46,31 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchRecipe({search}) {
+export default function SearchRecipe({ search }) {
+  const [searchTerm, setSearchTerm] = useState();
+
+  const debounce = (func, delay) => {
+    let timer;
+    return function (...args) {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    };
+  };
+
+  const performSearch = (query) => {
+    search(query)
+  };
+
+  const debouncedSearch = debounce(performSearch, 300); // 300ms delay
+
+  const handleInputChange = (event) => {
+    const { value } = event.target;
+    setSearchTerm(value);
+    debouncedSearch(value);
+  };
+
   return (
     <Search>
       <SearchIconWrapper>
@@ -54,7 +79,8 @@ export default function SearchRecipe({search}) {
       <StyledInputBase
         placeholder="Search the recipe..."
         inputProps={{ "aria-label": "search" }}
-        onChange={(e) => search(e.target.value)}
+        value={searchTerm}
+        onChange={handleInputChange}
       />
     </Search>
   );
