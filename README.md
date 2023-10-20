@@ -17,4 +17,4 @@
 
 # Demo
 
-[Demo link](https://garongan.github.io/find-this-recipe)
+[Demo link](https://find-this-recipe.vercel.app/)
