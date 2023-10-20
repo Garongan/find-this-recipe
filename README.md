@@ -1,6 +1,7 @@
 # Create find this recipe using spooncular api and material ui
 
 # Features
+
 - responsive design
 - search recipe with max results 10 response
 - showing recipe with picture description and instructions
@@ -9,7 +10,11 @@
 - skeleton mode if the image doesn't exist
 
 # Screenshot
- ![Find this recipe screenshot](screenshot.png)
 
- # Demo
-  [Demo link](https://garongan.github.io/find-this-recipe)
+![Find this recipe screenshot](react-find-this-recipe-dekstop.webp)
+![Find this recipe screenshot](react-find-this-recipe-tablet.webp)
+![Find this recipe screenshot](react-find-this-recipe-mobile.webp)
+
+# Demo
+
+[Demo link](https://garongan.github.io/find-this-recipe)
